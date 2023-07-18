@@ -7,7 +7,11 @@ import { ChatWithBot, ResponseModel } from './models';
   styleUrls: ['./customer-support.component.css']
 })
 export class CustomerSupportComponent implements OnInit {
-chatConversation: ChatWithBot[]=[];
+chatConversation: ChatWithBot[]=[{
+  person: 'bot',
+  response: 'Hello, I am WINDA. How can I help you today?',
+  cssClass: 'bot'
+}];
 response!: ResponseModel | undefined;
     promptText = '';
     showSpinner = false;
@@ -19,6 +23,7 @@ response!: ResponseModel | undefined;
 
   checkResponse() {
     this.pushChatContent(this.promptText,'You','person');
+    this.promptText = '';
     // this.invokeGPT();
   }
 
