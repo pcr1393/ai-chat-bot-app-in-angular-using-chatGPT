@@ -3,9 +3,10 @@
         <div class="col-md-12">
             <br>
                 <div class="card">
-                    <h4 class="card-header center text-primary">WINDA (Workflow Insights Data Analyzer)</h4>
+                    <h4 class="card-header text-center text-primary">WINDA (Workflow Insights Data Analyzer)</h4>
                     <div class="card-body">
                         <!-- <h6 class="card-title text-success center">AI Chatbot Support</h6> -->
+                        <br>
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
@@ -13,7 +14,7 @@
                                     <div *ngFor="let item of chatConversation">
                                        
                                         <div [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
-                                            <div class="box"  [ngClass]="{'sb2' : item.cssClass === 'bot', 'sb1': item.cssClass === 'person'}"> {{item.person}} :  {{getText(item.response)}}  </div>
+                                            <div  [ngClass]="{'bubble-left box-left' : item.cssClass === 'bot', 'bubble-right box-right': item.cssClass === 'person'}"> {{item.person}} :  {{getText(item.response)}}  </div>
                                         </div>
                                         
                                     </div>
