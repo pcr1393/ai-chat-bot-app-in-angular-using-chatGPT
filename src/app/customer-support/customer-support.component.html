@@ -11,7 +11,7 @@
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
                             <div class="frame-box">
-                                <div *ngFor="let item of chatConversation">
+                                <div class="chat-box" *ngFor="let item of chatConversation">
                                     <div [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
                                         <div class="character-with-icon" *ngIf="item.cssClass === 'bot'">
                                             <img src="../../assets/bot-image-1.png" width="30px"
@@ -41,11 +41,23 @@
                             <div class="user-text-input-with-button">
                                 <div class="input-group">
                                     <input type="text" class="form-control custom-form-control" [(ngModel)]="promptText" aria-label="Start by asking what you are looking for">
-                                    <div class="input-group-append" (click)="checkResponse()">
-                                      <span class="input-group-text">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                      </span>
-                                    </div>
+                                    <ng-container *ngIf="!showSpinner">
+                                        <div class="input-group-append" (click)="checkResponse()">
+                                            <span class="input-group-text">
+                                              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            </span>
+                                          </div>
+      
+                                    </ng-container>
+                                    <ng-container *ngIf="showSpinner">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <img src="../../assets/typing-chatting-1.gif" *ngIf="showSpinner" width="20px"
+                                                height="20px">
+                                            </span>
+                                          </div>
+      
+                                    </ng-container>
                                   </div>
                             </div>
                             

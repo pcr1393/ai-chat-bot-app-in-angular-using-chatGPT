@@ -42,7 +42,7 @@ response!: ResponseModel | undefined;
         timestamp: (new Date()).toString()
       });
       this.showSpinner = false;
-    }, 1000);
+    }, 5000);
   }
 
 
