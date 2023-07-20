@@ -14,6 +14,12 @@ chatConversation: ChatWithBot[]=[{
   timestamp: (new Date()).toString()
 }
 ];
+mostAskedQuestions: string[] = [
+  ' Give me all the past submitted transactions?',
+  'Give me in flight transactions?',
+  'What is VAAS9001?'
+];
+converstationStarted: boolean = false;
 response!: ResponseModel | undefined;
     promptText = '';
     showSpinner = false;
@@ -29,8 +35,13 @@ response!: ResponseModel | undefined;
     // this.invokeGPT();
   }
 
+  onQuestionClick(question: string): void {
+    this.pushChatContent(question,'You','person');
+  }
+
 
   pushChatContent(content:string, person:string, cssClass:string) {
+    this.converstationStarted = true;
     const chatToPush: ChatWithBot = { person:person, response:content, cssClass:cssClass, timestamp: (new Date()).toString()};
     this.chatConversation.push(chatToPush);
     this.showSpinner = true;

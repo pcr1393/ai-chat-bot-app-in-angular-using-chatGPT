@@ -17,12 +17,23 @@
 .frame-box{
     border: solid 1px rgb(186,209,243);
     padding: 20px;
+    padding-bottom: 10px;
     min-height: 200px;
     max-height: 400px;
     overflow-y: auto;
     border-radius: 2%;
     margin-bottom: 10px;
 }
+
+.chat-box-container {
+    min-height: 200px;
+}
+
+.most-asked-question {
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+
 
 .custom-form-control {
     border: solid 1px rgb(186,209,243);
