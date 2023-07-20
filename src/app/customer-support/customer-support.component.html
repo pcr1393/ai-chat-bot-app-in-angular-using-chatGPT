@@ -2,39 +2,58 @@
     <div class="row">
         <div class="col-md-12">
             <br>
-                <div class="card">
-                    <h4 class="card-header text-center text-primary">WINDA (Workflow Insights Data Analyzer)</h4>
-                    <div class="card-body">
-                        <!-- <h6 class="card-title text-success center">AI Chatbot Support</h6> -->
-                        <br>
-                        <div class="row">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-6">
-                                <div class="frame-box">
-                                    <div *ngFor="let item of chatConversation">
-                                       
-                                        <div [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
-                                            <div  [ngClass]="{'bubble-left box-left' : item.cssClass === 'bot', 'bubble-right box-right': item.cssClass === 'person'}"> {{item.person}} :  {{getText(item.response)}}  </div>
+            <div class="card">
+                <h4 class="card-header text-center text-primary">WINDA (Workflow Insights Data Analyzer)</h4>
+                <div class="card-body">
+                    <!-- <h6 class="card-title text-success center">AI Chatbot Support</h6> -->
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <div class="frame-box">
+                                <div *ngFor="let item of chatConversation">
+                                    <div [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
+                                        <div class="character-with-icon" *ngIf="item.cssClass === 'bot'">
+                                            <img src="../../assets/bot-image-1.png" width="30px"
+                                            height="30px">
                                         </div>
-                                        
+                                        <div class="buuble-box-cont">
+                                            <div [ngClass]="{'bubble-left box-left' : item.cssClass === 'bot', 'bubble-right box-right': item.cssClass === 'person'}">
+                                                <div class="bubble-text">{{getText(item.response)}} </div>
+                                                <!-- <div
+                                                    [ngClass]="{'time-stamp-black' : item.cssClass === 'bot', 'time-stamp-white': item.cssClass === 'person'}">
+                                                    {{item.timestamp | date: 'shortDate'}},&nbsp;{{item.timestamp | date:
+                                                    'shortTime'}}
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="character-with-icon" *ngIf="item.cssClass === 'person'">
+                                            <img src="../../assets/person.png" width="30px"
+                                        height="30px">
+                                        </div>
+
                                     </div>
-                                    <div><img src="../../assets/ZNeT.gif" *ngIf="showSpinner" width="50px" height="50px"></div>
-                                    
                                 </div>
-                                <br>
-                                    <textarea row="3" cols="15" class="form-control custom-form-control" [(ngModel)]="promptText" placeholder="Start by asking what you are looking for"></textarea>
-                                    <br>
-                                        <button class="btn btn-primary push-right" (click)="checkResponse()">Send</button>
-                                    </div>
-                                    <div class="col-md-2">
-                                      
-                                    </div>
-                                </div>
+                                <div><img src="../../assets/typing-chatting.gif" *ngIf="showSpinner" width="50px"
+                                        height="50px"></div>
 
                             </div>
+                            <div class="user-text-input-with-button">
+                                <div class="input-group">
+                                    <input type="text" class="form-control custom-form-control" [(ngModel)]="promptText" aria-label="Start by asking what you are looking for">
+                                    <div class="input-group-append" (click)="checkResponse()">
+                                      <span class="input-group-text">
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                      </span>
+                                    </div>
+                                  </div>
+                            </div>
+                            
                         </div>
                     </div>
+
                 </div>
             </div>
-            
-            
+        </div>
+    </div>
+</div>

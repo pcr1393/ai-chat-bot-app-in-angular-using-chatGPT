@@ -8,23 +8,24 @@
     color: purple;
 }
 
+
 .bot {    
     font-weight: bold; 
     color: darkgreen;
 }
 
 .frame-box{
-    border: solid 2px rgb(186,209,243);
+    border: solid 1px rgb(186,209,243);
     padding: 20px;
     min-height: 200px;
     max-height: 400px;
     overflow-y: auto;
     border-radius: 2%;
-
+    margin-bottom: 10px;
 }
 
 .custom-form-control {
-    border: solid 2px rgb(186,209,243);
+    border: solid 1px rgb(186,209,243);
 }
 
 .card-text {
@@ -37,24 +38,49 @@
 
 /*  */
 
+.bubble-image-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.buuble-box-cont {
+    margin-top:8px;
+}
+.character-with-icon {
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+    max-height: 50px;
+}
+
 .box-right {
     min-width: 100px;
+    max-width: 500px;
     margin: 10px 10px;
-    background: #007bff;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    background: #aed3fa;
     padding: 10px;
-    font-size: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
     text-align: center;
     font-weight: 600;
-    color: #fff;
+    font-size: 15px;
+    color: black;
     font-family: arial;
     position: relative;
 }
 
 .box-left {
     min-width: 100px;
+    max-width: 500px;
     margin: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 0px;
     background: rgb(236, 236, 236);;
     padding: 10px;
+    padding-bottom: 4px;
+    padding-top: 4px;
     text-align: center;
     font-weight: 600;
     font-size: 15px;
@@ -69,34 +95,42 @@
     justify-content: end;
 }
 
+.bubble-text {
+    padding: 0px;
+}
+
 .my-flex-container-left {
     display: flex;
     flex-direction: row;
     justify-content: start;
+    margin-bottom: 8px;
 }
   
-  .bubble-right:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 10px solid #007bff;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #007bff;
-    border-bottom: 10px solid transparent;
-    right: -19px;
-    top: 6px;
+  .time-stamp-white {
+    font-size: 7px;
+    color: white;
+    text-align: right;
   }
   
-  .bubble-left:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border-left: 10px solid transparent;
-    border-right: 10px solid rgb(236, 236, 236);;
-    border-top: 10px solid rgb(236, 236, 236);;
-    border-bottom: 10px solid transparent;
-    left: -19px;
-    top: 6px;
+  .time-stamp-black {
+    font-size: 7px;
+    color: black;
+    text-align: right;
+  }
+
+  /* styles for user input and submit button */
+
+  .user-text-input-with-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .user-input-box {
+    width: 87%;
+  }
+
+  .input-group-text {
+    height: 100%;
+    color: #007bff;
   }

@@ -10,8 +10,10 @@ export class CustomerSupportComponent implements OnInit {
 chatConversation: ChatWithBot[]=[{
   person: 'bot',
   response: 'Hello, I am WINDA. How can I help you today?',
-  cssClass: 'bot'
-}];
+  cssClass: 'bot',
+  timestamp: (new Date()).toString()
+}
+];
 response!: ResponseModel | undefined;
     promptText = '';
     showSpinner = false;
@@ -29,8 +31,18 @@ response!: ResponseModel | undefined;
 
 
   pushChatContent(content:string, person:string, cssClass:string) {
-    const chatToPush: ChatWithBot = { person:person, response:content, cssClass:cssClass};
+    const chatToPush: ChatWithBot = { person:person, response:content, cssClass:cssClass, timestamp: (new Date()).toString()};
     this.chatConversation.push(chatToPush);
+    this.showSpinner = true;
+    setTimeout(() => {
+      this.chatConversation.push({
+        person: 'bot',
+        response: 'Here is a list of transactions that you asked G21345, G43433, G766673',
+        cssClass: 'bot',
+        timestamp: (new Date()).toString()
+      });
+      this.showSpinner = false;
+    }, 1000);
   }
 
 

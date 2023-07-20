@@ -24,4 +24,5 @@ export interface ChatWithBot {
     person: string;
     response: string;
     cssClass:string;
+    timestamp: string;
 }
