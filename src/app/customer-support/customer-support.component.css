@@ -16,8 +16,6 @@
 
 .frame-box{
     border: solid 1px rgb(186,209,243);
-    padding: 20px;
-    padding-bottom: 10px;
     min-height: 200px;
     max-height: 400px;
     overflow-y: auto;
@@ -27,6 +25,12 @@
 
 .chat-box-container {
     min-height: 200px;
+    padding: 20px;
+}
+
+.chatbot-footer {
+    padding: 20px;
+    padding-bottom: 10px;
 }
 
 .most-asked-question {
@@ -57,6 +61,13 @@
 .buuble-box-cont {
     margin-top:8px;
 }
+
+.chatbot-header {
+    padding: 20px 10px;
+    background-color:#aed3fa;
+    text-align: center;
+}
+
 .character-with-icon {
     padding: 10px;
     border-radius: 50%;
