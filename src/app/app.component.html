@@ -1,6 +1,8 @@
 
 
-<button class="open-button" (click)="onShowChat()" *ngIf="!showPopup">WINDA</button>
+<button class="open-button" (click)="onShowChat()" *ngIf="!showPopup">
+  <span><i class="fa fa-comments" aria-hidden="true"></i></span>&nbsp;
+  <span>WINDA</span></button>
 
 <div class="chat-popup" *ngIf="showPopup">
     <app-customer-support (hideChat)="onHideChat()"></app-customer-support>

@@ -16,6 +16,7 @@
 
 .frame-box{
     border: solid 1px rgb(186,209,243);
+    background-color: white;
     min-height: 200px;
     max-height: 500px;
     overflow-y: auto;
@@ -63,16 +64,16 @@
 }
 
 .chatbot-header {
-    padding: 20px 10px;
+    padding: 10px 10px;
     background-color:#aed3fa;
     cursor: pointer;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .character-with-icon {
-    padding: 10px;
-    border-radius: 50%;
-    border: 1px solid black;
     height: 50px;
     max-height: 50px;
 }
@@ -159,3 +160,14 @@
     color: #007bff;
   }
   
+  .chatbot-minimize {
+    margin-right: 10px
+  }
+
+  .custom-min-size {
+    font-size: 1.5em;
+  }
+
+  .image-alignment {
+    vertical-align: bottom;
+  }
