@@ -18,6 +18,7 @@
     border: solid 1px rgb(186,209,243);
     background-color: white;
     min-height: 200px;
+    min-width: 500px;
     max-height: 500px;
     overflow-y: auto;
     border-radius: 2%;
@@ -42,6 +43,7 @@
 
 .custom-form-control {
     border: solid 1px rgb(186,209,243);
+    line-height: 2.5;
 }
 
 .card-text {
