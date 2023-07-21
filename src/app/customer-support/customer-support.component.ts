@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ChatWithBot, ResponseModel } from './models';
 
 @Component({
@@ -7,22 +7,23 @@ import { ChatWithBot, ResponseModel } from './models';
   styleUrls: ['./customer-support.component.css']
 })
 export class CustomerSupportComponent implements OnInit {
-chatConversation: ChatWithBot[]=[{
-  person: 'bot',
-  response: 'Hello, I am WINDA. How can I help you today?',
-  cssClass: 'bot',
-  timestamp: (new Date()).toString()
-}
-];
-mostAskedQuestions: string[] = [
-  ' Give me all the past submitted transactions?',
-  'Give me in flight transactions?',
-  'What is VAAS9001?'
-];
-converstationStarted: boolean = false;
-response!: ResponseModel | undefined;
-    promptText = '';
-    showSpinner = false;
+  chatConversation: ChatWithBot[] = [{
+    person: 'bot',
+    response: 'Hello, I am WINDA. How can I help you today?',
+    cssClass: 'bot',
+    timestamp: (new Date()).toString()
+  }
+  ];
+  mostAskedQuestions: string[] = [
+    ' Give me all the past submitted transactions for the current user?',
+    'Give me in flight transactions?',
+    'What is VAAS9001?'
+  ];
+  converstationStarted: boolean = false;
+  response!: ResponseModel | undefined;
+  promptText = '';
+  showSpinner = false;
+  @Output() hideChat: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -30,19 +31,19 @@ response!: ResponseModel | undefined;
   }
 
   checkResponse() {
-    this.pushChatContent(this.promptText,'You','person');
+    this.pushChatContent(this.promptText, 'You', 'person');
     this.promptText = '';
     // this.invokeGPT();
   }
 
   onQuestionClick(question: string): void {
-    this.pushChatContent(question,'You','person');
+    this.pushChatContent(question, 'You', 'person');
   }
 
 
-  pushChatContent(content:string, person:string, cssClass:string) {
+  pushChatContent(content: string, person: string, cssClass: string) {
     this.converstationStarted = true;
-    const chatToPush: ChatWithBot = { person:person, response:content, cssClass:cssClass, timestamp: (new Date()).toString()};
+    const chatToPush: ChatWithBot = { person: person, response: content, cssClass: cssClass, timestamp: (new Date()).toString() };
     this.chatConversation.push(chatToPush);
     this.showSpinner = true;
     setTimeout(() => {
@@ -56,8 +57,12 @@ response!: ResponseModel | undefined;
     }, 5000);
   }
 
+  onHideChat(): void {
+    this.hideChat.emit(true);
+  }
 
-  getText(data:string) {
-    return data.split('\n').filter(f=>f.length>0);
+
+  getText(data: string) {
+    return data.split('\n').filter(f => f.length > 0);
   }
 }

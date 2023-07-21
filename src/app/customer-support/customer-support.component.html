@@ -1,76 +1,63 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <br>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="frame-box">
-                        <div class="chatbot-header">
-                            <span><b>WINDA (Workflow Insights Data Analyzer)</b></span>
-                        </div>
-                        <div class="chat-box-container">
-                            <div class="chat-box" *ngFor="let item of chatConversation">
-                                <div
-                                    [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
-                                    <div class="character-with-icon" *ngIf="item.cssClass === 'bot'">
-                                        <img src="../../assets/bot-image-1.png" width="30px" height="30px">
-                                    </div>
-                                    <div class="buuble-box-cont">
-                                        <div
-                                            [ngClass]="{'bubble-left box-left' : item.cssClass === 'bot', 'bubble-right box-right': item.cssClass === 'person'}">
-                                            <div class="bubble-text">{{getText(item.response)}} </div>
-                                            <!-- <div
-                                                [ngClass]="{'time-stamp-black' : item.cssClass === 'bot', 'time-stamp-white': item.cssClass === 'person'}">
-                                                {{item.timestamp | date: 'shortDate'}},&nbsp;{{item.timestamp | date:
-                                                'shortTime'}}
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="character-with-icon" *ngIf="item.cssClass === 'person'">
-                                        <img src="../../assets/person.png" width="30px" height="30px">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbot-footer">
-                            <div><img src="../../assets/typing-chatting.gif" *ngIf="showSpinner" width="50px"
-                                height="50px"></div>
-                        <ng-container *ngIf="!converstationStarted">
-                            <ng-container *ngFor="let item of mostAskedQuestions">
-                                <button type="button" class="btn btn-outline-secondary most-asked-question" (click)="onQuestionClick(item)">{{item}}</button>
-                            </ng-container>
-                        </ng-container>
-                        </div>
-
-                    </div>
-                    <div class="user-text-input-with-button">
-                        <div class="input-group">
-                            <input type="text" class="form-control custom-form-control" [(ngModel)]="promptText"
-                                aria-label="Start by asking what you are looking for">
-                            <ng-container *ngIf="!showSpinner">
-                                <div class="input-group-append" (click)="checkResponse()">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-
-                            </ng-container>
-                            <ng-container *ngIf="showSpinner">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <img src="../../assets/typing-chatting-1.gif" *ngIf="showSpinner"
-                                            width="20px" height="20px">
-                                    </span>
-                                </div>
-
-                            </ng-container>
-                        </div>
-                    </div>
-
+<div class="frame-box">
+    <div class="chatbot-header" (click)="onHideChat()">
+        <span><b>WINDA (Workflow Insights Data Analyzer)</b></span>
+    </div>
+    <div class="chat-box-container">
+        <div class="chat-box" *ngFor="let item of chatConversation">
+            <div
+                [ngClass]="{'my-flex-container-left' : item.cssClass === 'bot', 'my-flex-container-right': item.cssClass === 'person'}">
+                <div class="character-with-icon" *ngIf="item.cssClass === 'bot'">
+                    <img src="../../assets/bot-image-1.png" width="30px" height="30px">
                 </div>
+                <div class="buuble-box-cont">
+                    <div
+                        [ngClass]="{'bubble-left box-left' : item.cssClass === 'bot', 'bubble-right box-right': item.cssClass === 'person'}">
+                        <div class="bubble-text">{{getText(item.response)}} </div>
+                        <!-- <div
+                            [ngClass]="{'time-stamp-black' : item.cssClass === 'bot', 'time-stamp-white': item.cssClass === 'person'}">
+                            {{item.timestamp | date: 'shortDate'}},&nbsp;{{item.timestamp | date:
+                            'shortTime'}}
+                        </div> -->
+                    </div>
+                </div>
+                <div class="character-with-icon" *ngIf="item.cssClass === 'person'">
+                    <img src="../../assets/person.png" width="30px" height="30px">
+                </div>
+
             </div>
         </div>
+    </div>
+    <div class="chatbot-footer">
+        <div><img src="../../assets/typing-chatting.gif" *ngIf="showSpinner" width="50px"
+            height="50px"></div>
+    <ng-container *ngIf="!converstationStarted">
+        <ng-container *ngFor="let item of mostAskedQuestions">
+            <button type="button" class="btn btn-outline-secondary most-asked-question" (click)="onQuestionClick(item)">{{item}}</button>
+        </ng-container>
+    </ng-container>
+    </div>
+
+</div>
+<div class="user-text-input-with-button">
+    <div class="input-group">
+        <input type="text" class="form-control custom-form-control" [(ngModel)]="promptText"
+            aria-label="Start by asking what you are looking for">
+        <ng-container *ngIf="!showSpinner">
+            <div class="input-group-append" (click)="checkResponse()">
+                <span class="input-group-text">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </span>
+            </div>
+
+        </ng-container>
+        <ng-container *ngIf="showSpinner">
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <img src="../../assets/typing-chatting-1.gif" *ngIf="showSpinner"
+                        width="20px" height="20px">
+                </span>
+            </div>
+
+        </ng-container>
     </div>
 </div>

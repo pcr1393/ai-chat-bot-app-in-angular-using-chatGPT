@@ -1,1 +1,7 @@
-<app-customer-support></app-customer-support>
+
+
+<button class="open-button" (click)="onShowChat()" *ngIf="!showPopup">WINDA</button>
+
+<div class="chat-popup" *ngIf="showPopup">
+    <app-customer-support (hideChat)="onHideChat()"></app-customer-support>
+</div>

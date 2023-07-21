@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'chatbot';
+  
+showPopup: boolean = false;
+
+onShowChat(): void {
+  this.showPopup = true;
+}
+
+onHideChat(): void {
+  this.showPopup = false;
+}
 }
